@@ -4,7 +4,7 @@ from skimage.measure import label, regionprops
 from screen_parameter import white_min_rgb, min_mk47_high, max_mk47_high, min_mk47_width, max_mk47_width
 
 
-def get_white_shield(im, min_rgb=230):
+def get_white_shield(im, min_rgb=white_min_rgb):
     shield_rgb = np.where(im > min_rgb, 255, 0).astype(np.uint8)
     shield = shield_rgb[:, :, 0] & shield_rgb[:, :, 1] & shield_rgb[:, :, 2]
     return shield
@@ -22,7 +22,7 @@ def search_white_size(shield, min_h=min_mk47_high, max_h=max_mk47_high, min_w=mi
     bbox_list = list()
     for prop in props:
         bbox = prop.bbox
-        if min_h < (bbox[3] - bbox[1]) < max_h and min_w < (bbox[2] - bbox[0]) < max_w:
+        if min_h < (bbox[2] - bbox[0]) < max_h and min_w < (bbox[3] - bbox[1]) < max_w:
             bbox_list.append(bbox)
     return bbox_list
 
@@ -39,6 +39,6 @@ if __name__ == '__main__':
     for rect in bboxes:
         y1, x1, y2, x2 = rect
         shield[y1:y2, x1:x2] = 1.0
+        print(y1, y2, x1, x2)
     cv2.imshow('shield', im * shield)
     cv2.waitKey()
-

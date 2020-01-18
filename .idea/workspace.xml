@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fd71701-ceef-4216-8d21-43fbca6322e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/auto_pubg.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/01_start_match.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/detect.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/position_constant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screens_icon_position/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/search_rects.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/search_white_rects.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/press_gun/key_listener.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/press_gun/press.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/press_gun/time_periods_constant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen_capture.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen_parameter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/search_white_rects.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_detection/search_white_rects.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen_parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/screen_parameter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,95 +41,7 @@
       <recent name="D:\github_project\auto_pubg" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.search_rects (1)">
-    <configuration name="position_constant" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="auto_pubg" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_detection" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image_detection/position_constant.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="screen_capture" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="auto_pubg" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/screen_capture.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="search_rects (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="auto_pubg" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_detection" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image_detection/search_rects.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="search_rects" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="auto_pubg" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_detection" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\github_project\auto_pubg\image_detection\search_rects.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="search_white_rects" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="auto_pubg" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -171,11 +66,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.search_rects (1)" />
         <item itemvalue="Python.search_white_rects" />
-        <item itemvalue="Python.search_rects" />
-        <item itemvalue="Python.position_constant" />
-        <item itemvalue="Python.screen_capture" />
       </list>
     </recent_temporary>
   </component>
@@ -204,18 +95,34 @@
       <workItem from="1579265535891" duration="9989000" />
       <workItem from="1579311057195" duration="2902000" />
       <workItem from="1579314635009" duration="18944000" />
-      <workItem from="1579360231948" duration="3230000" />
+      <workItem from="1579360231948" duration="4224000" />
     </task>
+    <task id="LOCAL-00001" summary="initial">
+      <created>1579363651444</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579363651444</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="179" key="#Updates" timestamp="1579314516097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Updates/0.0.1920.1040@0.0.1920.1040" timestamp="1579314516097" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579363687526">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579363687526" />
     <state x="640" y="247" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1579314516851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -228,42 +135,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="715" y="222" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1579358475723" />
-    <state x="560" y="110" key="CommitChangelistDialog2" timestamp="1579359923184">
+    <state x="560" y="110" key="CommitChangelistDialog2" timestamp="1579363650588">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="110" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1579359923184" />
-    <state width="569" height="912" key="GridCell.Tab.0.bottom" timestamp="1579363455458">
+    <state x="560" y="110" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1579363650588" />
+    <state width="569" height="912" key="GridCell.Tab.0.bottom" timestamp="1579364143144">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="569" height="912" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579363455458" />
-    <state width="569" height="912" key="GridCell.Tab.0.center" timestamp="1579363455457">
+    <state width="569" height="912" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579364143144" />
+    <state width="569" height="912" key="GridCell.Tab.0.center" timestamp="1579364143144">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="569" height="912" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579363455457" />
-    <state width="569" height="912" key="GridCell.Tab.0.left" timestamp="1579363455457">
+    <state width="569" height="912" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579364143144" />
+    <state width="569" height="912" key="GridCell.Tab.0.left" timestamp="1579364143144">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="569" height="912" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579363455457" />
-    <state width="569" height="912" key="GridCell.Tab.0.right" timestamp="1579363455457">
+    <state width="569" height="912" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579364143144" />
+    <state width="569" height="912" key="GridCell.Tab.0.right" timestamp="1579364143144">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="569" height="912" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579363455457" />
-    <state width="887" height="912" key="GridCell.Tab.1.bottom" timestamp="1579363234045">
+    <state width="569" height="912" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579364143144" />
+    <state width="887" height="912" key="GridCell.Tab.1.bottom" timestamp="1579363873212">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="887" height="912" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579363234045" />
-    <state width="887" height="912" key="GridCell.Tab.1.center" timestamp="1579363234045">
+    <state width="887" height="912" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579363873212" />
+    <state width="887" height="912" key="GridCell.Tab.1.center" timestamp="1579363873212">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="887" height="912" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579363234045" />
-    <state width="887" height="912" key="GridCell.Tab.1.left" timestamp="1579363234045">
+    <state width="887" height="912" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579363873212" />
+    <state width="887" height="912" key="GridCell.Tab.1.left" timestamp="1579363873212">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="887" height="912" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579363234045" />
-    <state width="887" height="912" key="GridCell.Tab.1.right" timestamp="1579363234045">
+    <state width="887" height="912" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579363873212" />
+    <state width="887" height="912" key="GridCell.Tab.1.right" timestamp="1579363873212">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="887" height="912" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579363234045" />
+    <state width="887" height="912" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579363873212" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1579265694048">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -274,8 +181,8 @@
     <SUITE FILE_PATH="coverage/auto_pubg$match_mode.coverage" NAME="match_mode Coverage Results" MODIFIED="1579314995858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
     <SUITE FILE_PATH="coverage/auto_pubg$position_constant.coverage" NAME="position_constant Coverage Results" MODIFIED="1579359842917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
     <SUITE FILE_PATH="coverage/auto_pubg$screen_capture.coverage" NAME="screen_capture Coverage Results" MODIFIED="1579334270173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/auto_pubg$search_rects__1_.coverage" NAME="search_rects (1) Coverage Results" MODIFIED="1579363455452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
-    <SUITE FILE_PATH="coverage/auto_pubg$search_white_rects.coverage" NAME="search_white_rects Coverage Results" MODIFIED="1579363279953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
+    <SUITE FILE_PATH="coverage/auto_pubg$search_rects__1_.coverage" NAME="search_rects (1) Coverage Results" MODIFIED="1579363673783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
+    <SUITE FILE_PATH="coverage/auto_pubg$search_white_rects.coverage" NAME="search_white_rects Coverage Results" MODIFIED="1579364143136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
     <SUITE FILE_PATH="coverage/auto_pubg$01_start_match.coverage" NAME="01_start_match Coverage Results" MODIFIED="1579330157450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
   </component>
 </project>
