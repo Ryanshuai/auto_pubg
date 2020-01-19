@@ -10,6 +10,7 @@ min_rect_side_len = 45 * screen_factor
 max_rect_side_len = 55 * screen_factor
 
 white_min_rgb = 230
+min_white_area = 5 * screen_factor * 5 * screen_factor
 
 min_mk47_high = 15 * screen_factor
 max_mk47_high = 25 * screen_factor

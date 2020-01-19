@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2fd71701-ceef-4216-8d21-43fbca6322e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/image_detection/match_icon_old.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon1/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon1/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon1/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon1/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon1/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon1/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon2/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon2/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon2/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon2/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon2/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_detection/screen_icon2/5.png" afterDir="false" />
+    <list default="true" id="2fd71701-ceef-4216-8d21-43fbca6322e1" name="Default Changelist" comment="match_icon.py works">
+      <change afterPath="$PROJECT_DIR$/all_states.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calibrate_distance/1_auto_bullet_hole_screen_capture.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calibrate_distance/2_generate_dist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calibrate_distance/auto_screen_capture.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calibrate_distance/find_bullet_hole.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calibrate_distance/gun_distance_constant.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calibrate_icons/get_white_area/crop_white.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image_detection/detect_old.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image_detection/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_detection/match_icon.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_detection/match_icon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_detection/detect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/match_icon.py" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/match_icon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/match_icon_old.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/position_constant.py" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_position/position_constant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon1/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon1/0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon1/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon1/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon1/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon1/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon1/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon1/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon1/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon1/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon1/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon1/5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon2/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon2/0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon2/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon2/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon2/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon2/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon2/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon2/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon2/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon2/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screen_icon2/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_icons/screen_icon2/5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screens_fire_mode/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_position/screens_fire_mode/0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/screens_weapon/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_position/screens_weapon/0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/search_rects.py" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_position/search_rects.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/search_white_rects.py" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_position/search_white_rects.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/test_screens_icon_match/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/calibrate_icons/get_white_area/screen_white_areas/0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_detection/test_screens_icon_match/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen_parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/screen_parameter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,20 +60,26 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/image_detection/screen_icon2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/calibrate_distance" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\github_project\auto_pubg\image_detection\screen_icon2" />
-      <recent name="D:\github_project\auto_pubg\image_detection\screen_icon1" />
-      <recent name="D:\github_project\auto_pubg\image_detection" />
-      <recent name="D:\github_project\auto_pubg\image_detection\test" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\github_project\auto_pubg\calibrate_icons" />
+      <recent name="D:\github_project\auto_pubg\image_detection\get_icons" />
+      <recent name="D:\github_project\auto_pubg\image_detection\get_position" />
       <recent name="D:\github_project\auto_pubg\image_detection\test_screens_icon_match" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github_project\auto_pubg\calibrate_distance" />
+      <recent name="D:\github_project\auto_pubg\calibrate_icons\get_white_area\screen_white_areas" />
+      <recent name="D:\github_project\auto_pubg\calibrate_icons" />
+      <recent name="D:\github_project\auto_pubg\image_detection\get_white_area" />
+      <recent name="D:\github_project\auto_pubg\image_detection" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.match_icon">
-    <configuration name="icon_match" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.crop_white">
+    <configuration name="crop_white" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="auto_pubg" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -63,12 +87,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_detection" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/calibrate_icons/get_white_area" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image_detection/icon_match.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/calibrate_icons/get_white_area/crop_white.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -112,7 +136,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image_detection/match_icon.py" />
+      <option name="SCRIPT_NAME" value="D:\github_project\auto_pubg\image_detection\get_icons\match_icon.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,7 +180,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\github_project\auto_pubg\image_detection\match_icon_old.py" />
+      <option name="SCRIPT_NAME" value="D:\github_project\auto_pubg\image_detection\get_icons\match_icon_old.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -189,10 +213,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.crop_white" />
         <item itemvalue="Python.match_icon" />
         <item itemvalue="Python.screen_capture" />
         <item itemvalue="Python.icon_test" />
-        <item itemvalue="Python.match_icon_old" />
         <item itemvalue="Python.match_icon_old" />
       </list>
     </recent_temporary>
@@ -224,7 +248,7 @@
       <workItem from="1579314635009" duration="18944000" />
       <workItem from="1579360231948" duration="4289000" />
       <workItem from="1579394892939" duration="11236000" />
-      <workItem from="1579425735612" duration="5001000" />
+      <workItem from="1579425735612" duration="13575000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1579363651444</created>
@@ -268,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579406306685</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="match_icon.py works">
+      <created>1579432309872</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1579432309872</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +310,8 @@
     <MESSAGE value="update screen_parameter.py" />
     <MESSAGE value="all position done" />
     <MESSAGE value="match_icon.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="match_icon.py" />
+    <MESSAGE value="match_icon.py works" />
+    <option name="LAST_COMMIT_MESSAGE" value="match_icon.py works" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="179" key="#Updates" timestamp="1579314516097">
@@ -298,50 +330,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579330612803" />
-    <state x="715" y="222" key="#xdebugger.evaluate" timestamp="1579358475723">
+    <state x="715" y="222" key="#xdebugger.evaluate" timestamp="1579445094896">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="715" y="222" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1579358475723" />
-    <state x="321" y="75" width="1521" height="903" key="CommitChangelistDialog2" timestamp="1579406305548">
+    <state x="715" y="222" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1579445094896" />
+    <state x="321" y="75" width="1521" height="903" key="CommitChangelistDialog2" timestamp="1579432321746">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="321" y="75" width="1521" height="903" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1579406305548" />
+    <state x="321" y="75" width="1521" height="903" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1579432321746" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1579430080420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1579430080420" />
-    <state width="362" height="912" key="GridCell.Tab.0.bottom" timestamp="1579432280700">
+    <state width="671" height="912" key="GridCell.Tab.0.bottom" timestamp="1579448102058">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="362" height="912" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579432280700" />
-    <state width="362" height="912" key="GridCell.Tab.0.center" timestamp="1579432280700">
+    <state width="671" height="912" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579448102058" />
+    <state width="671" height="912" key="GridCell.Tab.0.center" timestamp="1579448102058">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="362" height="912" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579432280700" />
-    <state width="362" height="912" key="GridCell.Tab.0.left" timestamp="1579432280700">
+    <state width="671" height="912" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579448102058" />
+    <state width="671" height="912" key="GridCell.Tab.0.left" timestamp="1579448102058">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="362" height="912" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579432280700" />
-    <state width="362" height="912" key="GridCell.Tab.0.right" timestamp="1579432280700">
+    <state width="671" height="912" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579448102058" />
+    <state width="671" height="912" key="GridCell.Tab.0.right" timestamp="1579448102058">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="362" height="912" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579432280700" />
-    <state width="518" height="912" key="GridCell.Tab.1.bottom" timestamp="1579427486675">
+    <state width="671" height="912" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579448102058" />
+    <state width="754" height="912" key="GridCell.Tab.1.bottom" timestamp="1579446410092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="518" height="912" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579427486675" />
-    <state width="518" height="912" key="GridCell.Tab.1.center" timestamp="1579427486675">
+    <state width="754" height="912" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579446410092" />
+    <state width="754" height="912" key="GridCell.Tab.1.center" timestamp="1579446410092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="518" height="912" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579427486675" />
-    <state width="518" height="912" key="GridCell.Tab.1.left" timestamp="1579427486675">
+    <state width="754" height="912" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579446410092" />
+    <state width="754" height="912" key="GridCell.Tab.1.left" timestamp="1579446410092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="518" height="912" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579427486675" />
-    <state width="518" height="912" key="GridCell.Tab.1.right" timestamp="1579427486675">
+    <state width="754" height="912" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579446410092" />
+    <state width="754" height="912" key="GridCell.Tab.1.right" timestamp="1579446410092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="518" height="912" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579427486675" />
+    <state width="754" height="912" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579446410092" />
     <state x="738" y="231" key="RollbackChangesDialog" timestamp="1579404637805">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -354,23 +386,28 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1579397354895" />
-    <state x="636" y="253" width="647" height="534" key="find.popup" timestamp="1579403373809">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1579432327135">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="636" y="253" width="647" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1579403373809" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1579432327135" />
+    <state x="636" y="253" width="647" height="534" key="find.popup" timestamp="1579443262484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="636" y="253" width="647" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1579443262484" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/auto_pubg$search_rects__1_.coverage" NAME="search_rects (1) Coverage Results" MODIFIED="1579363673783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
+    <SUITE FILE_PATH="coverage/auto_pubg$icon_match.coverage" NAME="icon_match Coverage Results" MODIFIED="1579403397247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
+    <SUITE FILE_PATH="coverage/auto_pubg$search_white_rects.coverage" NAME="search_white_rects Coverage Results" MODIFIED="1579398346087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
+    <SUITE FILE_PATH="coverage/auto_pubg$search_rects.coverage" NAME="search_rects Coverage Results" MODIFIED="1579396701617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
+    <SUITE FILE_PATH="coverage/auto_pubg$01_start_match.coverage" NAME="01_start_match Coverage Results" MODIFIED="1579404716795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
     <SUITE FILE_PATH="coverage/auto_pubg$find_image_corner.coverage" NAME="find_image_corner Coverage Results" MODIFIED="1579359849953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
     <SUITE FILE_PATH="coverage/auto_pubg$match_mode.coverage" NAME="match_mode Coverage Results" MODIFIED="1579314995858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
     <SUITE FILE_PATH="coverage/auto_pubg$icon_test.coverage" NAME="icon_test Coverage Results" MODIFIED="1579429778622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
     <SUITE FILE_PATH="coverage/auto_pubg$position_constant.coverage" NAME="position_constant Coverage Results" MODIFIED="1579359842917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
     <SUITE FILE_PATH="coverage/auto_pubg$match_icon.coverage" NAME="match_icon Coverage Results" MODIFIED="1579432280689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
     <SUITE FILE_PATH="coverage/auto_pubg$screen_capture.coverage" NAME="screen_capture Coverage Results" MODIFIED="1579431326456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/auto_pubg$search_rects__1_.coverage" NAME="search_rects (1) Coverage Results" MODIFIED="1579363673783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
-    <SUITE FILE_PATH="coverage/auto_pubg$icon_match.coverage" NAME="icon_match Coverage Results" MODIFIED="1579403397247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
-    <SUITE FILE_PATH="coverage/auto_pubg$search_white_rects.coverage" NAME="search_white_rects Coverage Results" MODIFIED="1579398346087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
-    <SUITE FILE_PATH="coverage/auto_pubg$search_rects.coverage" NAME="search_rects Coverage Results" MODIFIED="1579396701617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
+    <SUITE FILE_PATH="coverage/auto_pubg$crop_white.coverage" NAME="crop_white Coverage Results" MODIFIED="1579448102053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/calibrate_icons/get_white_area" />
     <SUITE FILE_PATH="coverage/auto_pubg$match_icon__1_.coverage" NAME="match_icon (1) Coverage Results" MODIFIED="1579427071878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
-    <SUITE FILE_PATH="coverage/auto_pubg$01_start_match.coverage" NAME="01_start_match Coverage Results" MODIFIED="1579404716795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_detection" />
   </component>
 </project>

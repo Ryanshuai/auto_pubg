@@ -1,11 +1,11 @@
 import numpy as np
 import cv2
 import os
-from auto_position_label.utils import get_white_shield
+from image_detection.utils import get_white_shield
 
 
 class Detector:
-    def __init__(self, category_name):
+    def __init__(self, position, crop_dict):
         self.png_dict = dict()
 
         png_dir = os.path.join('D:/github_project/auto_press_down_gun/image_detect/states_4c_im', category_name)
