@@ -106,7 +106,7 @@ def get_image_corner(image, sort=True):
 
 
 if __name__ == '__main__':
-    im = cv2.imread('screens_icon_position/0.png')
+    im = cv2.imread('screens_weapon/0.png')
 
     rects = get_image_corner(im)
     name = ['weapon1scope', 'weapon1muzzle', 'weapon1grip', 'weapon1magazine', 'weapon1butt',

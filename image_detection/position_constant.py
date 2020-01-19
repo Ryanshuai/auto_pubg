@@ -1,22 +1,22 @@
+# [y1, x1, y2, x2]
 screen_position = \
     {'fire_mode': [1652, 1336, 1673, 1360],
      'in_tab': [1053, 138, 1096, 148],
      'in_scope': [1669, 1179, 1766, 1208],
 
-     'weapon1name': [2245, 135, 2400, 160],
-     'weapon2name': [2245, 442, 2400, 467],
+     'weapon1name': [103, 1358, 123, 1471],
+     'weapon2name': [333, 1358, 353, 1471],
 
-     'weapon1scope': [1588, 117, 1633, 162],
-     'weapon1muzzle': [1316, 250, 1361, 295],
-     'weapon1grip': [1418, 250, 1463, 295],
-     'weapon1magazine': [1528, 250, 1573, 295],
-     'weapon1butt': [1740, 250, 1785, 295],
-     'weapon2scope': [1588, 347, 1633, 392],
-     'weapon2muzzle': [1316, 480, 1361, 525],
-     'weapon2grip': [1418, 480, 1463, 525],
-     'weapon2magazine': [1528, 480, 1573, 525],
-     'weapon2butt': [1740, 480, 1785, 525]
-     }
+     'weapon1scope': [117, 1588, 162, 1633],
+     'weapon1muzzle': [250, 1316, 295, 1361],
+     'weapon1grip': [250, 1418, 295, 1463],
+     'weapon1magazine': [250, 1528, 295, 1573],
+     'weapon1butt': [250, 1740, 295, 1785],
+     'weapon2scope': [347, 1588, 392, 1633],
+     'weapon2muzzle': [480, 1316, 525, 1361],
+     'weapon2grip': [480, 1418, 525, 1463],
+     'weapon2magazine': [480, 1528, 525, 1573],
+     'weapon2butt': [480, 1740, 525, 1785]}
 
 screen_position_states = \
     {'fire_mode': ['single', 'burst2', 'burst3', 'full'],

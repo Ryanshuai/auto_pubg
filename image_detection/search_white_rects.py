@@ -1,7 +1,9 @@
 import numpy as np
 from skimage.measure import label, regionprops
 
-from screen_parameter import white_min_rgb, min_mk47_high, max_mk47_high, min_mk47_width, max_mk47_width
+from screen_parameter import white_min_rgb
+from screen_parameter import min_mk47_high, max_mk47_high, min_mk47_width, max_mk47_width
+from screen_parameter import min_fire_mode_high, max_fire_mode_high, min_fire_mode_width, max_fire_mode_width
 
 
 def get_white_shield(im, min_rgb=white_min_rgb):
@@ -10,7 +12,9 @@ def get_white_shield(im, min_rgb=white_min_rgb):
     return shield
 
 
-def search_white_size(shield, min_h=min_mk47_high, max_h=max_mk47_high, min_w=min_mk47_width, max_w=max_mk47_width):
+def search_white_size(image, min_h, max_h, min_w, max_w):
+    shield = get_white_shield(image)
+
     kernel = np.ones((14, 14), np.uint8)
     shield = cv2.morphologyEx(shield, cv2.MORPH_CLOSE, kernel)
     cv2.imshow('shield', shield)
@@ -30,15 +34,26 @@ def search_white_size(shield, min_h=min_mk47_high, max_h=max_mk47_high, min_w=mi
 if __name__ == '__main__':
     import cv2
 
-    im = cv2.imread('screens_icon_position/0.png')
+    im = cv2.imread('screens_weapon/0.png')
 
-    shield = get_white_shield(im)
-    bboxes = search_white_size(shield)
+    bboxes = search_white_size(im, min_mk47_high, max_mk47_high, min_mk47_width, max_mk47_width)
+
+    shield = np.zeros_like(im, dtype=np.uint8)
+    print('mk47 name')
+    for rect in bboxes:
+        y1, x1, y2, x2 = rect
+        shield[y1:y2, x1:x2] = 1.0
+        print([y1, x1, y2, x2])
+    cv2.imshow('shield', im * shield)
+    cv2.waitKey()
+
+    im = cv2.imread('screens_fire_mode/0.png')
+    bboxes = search_white_size(im, min_fire_mode_high, max_fire_mode_high, min_fire_mode_width, max_fire_mode_width)
 
     shield = np.zeros_like(im, dtype=np.uint8)
     for rect in bboxes:
         y1, x1, y2, x2 = rect
         shield[y1:y2, x1:x2] = 1.0
-        print(y1, y2, x1, x2)
+        print([y1, x1, y2, x2])
     cv2.imshow('shield', im * shield)
     cv2.waitKey()
