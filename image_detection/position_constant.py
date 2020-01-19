@@ -1,13 +1,14 @@
 # [y1, x1, y2, x2]
-screen_position = \
+screen_white_position = \
     {'fire_mode': [1003, 912, 1021, 926],
      'in_tab': [102, 462, 113, 493],
      'in_scope': [1669, 1179, 1766, 1208],
-
      'weapon1name': [103, 1358, 123, 1471],
      'weapon2name': [333, 1358, 353, 1471],
+     }
 
-     'weapon1scope': [117, 1588, 162, 1633],
+screen_icon_position = \
+    {'weapon1scope': [117, 1588, 162, 1633],
      'weapon1muzzle': [250, 1316, 295, 1361],
      'weapon1grip': [250, 1418, 295, 1463],
      'weapon1magazine': [250, 1528, 295, 1573],
@@ -16,7 +17,8 @@ screen_position = \
      'weapon2muzzle': [480, 1316, 525, 1361],
      'weapon2grip': [480, 1418, 525, 1463],
      'weapon2magazine': [480, 1528, 525, 1573],
-     'weapon2butt': [480, 1740, 525, 1785]}
+     'weapon2butt': [480, 1740, 525, 1785]
+     }
 
 screen_position_states = \
     {'fire_mode': ['single', 'burst2', 'burst3', 'full'],
