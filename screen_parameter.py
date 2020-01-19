@@ -20,3 +20,8 @@ min_fire_mode_high = 15 * screen_factor
 max_fire_mode_high = 25 * screen_factor
 min_fire_mode_width = 12 * screen_factor
 max_fire_mode_width = 17 * screen_factor
+
+min_in_tab_high = 7 * screen_factor
+max_in_tab_high = 13 * screen_factor
+min_in_tab_width = 28 * screen_factor
+max_in_tab_width = 34 * screen_factor

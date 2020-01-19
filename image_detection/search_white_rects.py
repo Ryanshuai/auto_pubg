@@ -4,6 +4,7 @@ from skimage.measure import label, regionprops
 from screen_parameter import white_min_rgb
 from screen_parameter import min_mk47_high, max_mk47_high, min_mk47_width, max_mk47_width
 from screen_parameter import min_fire_mode_high, max_fire_mode_high, min_fire_mode_width, max_fire_mode_width
+from screen_parameter import min_in_tab_high, max_in_tab_high, min_in_tab_width, max_in_tab_width
 
 
 def get_white_shield(im, min_rgb=white_min_rgb):
@@ -35,11 +36,9 @@ if __name__ == '__main__':
     import cv2
 
     im = cv2.imread('screens_weapon/0.png')
-
-    bboxes = search_white_size(im, min_mk47_high, max_mk47_high, min_mk47_width, max_mk47_width)
-
+    bboxes = search_white_size(im, min_in_tab_high, max_in_tab_high, min_in_tab_width, max_in_tab_width)
+    print('in_tab')
     shield = np.zeros_like(im, dtype=np.uint8)
-    print('mk47 name')
     for rect in bboxes:
         y1, x1, y2, x2 = rect
         shield[y1:y2, x1:x2] = 1.0
@@ -49,8 +48,19 @@ if __name__ == '__main__':
 
     im = cv2.imread('screens_fire_mode/0.png')
     bboxes = search_white_size(im, min_fire_mode_high, max_fire_mode_high, min_fire_mode_width, max_fire_mode_width)
-
+    print('fire_mode')
     shield = np.zeros_like(im, dtype=np.uint8)
+    for rect in bboxes:
+        y1, x1, y2, x2 = rect
+        shield[y1:y2, x1:x2] = 1.0
+        print([y1, x1, y2, x2])
+    cv2.imshow('shield', im * shield)
+    cv2.waitKey()
+
+    im = cv2.imread('screens_weapon/0.png')
+    bboxes = search_white_size(im, min_mk47_high, max_mk47_high, min_mk47_width, max_mk47_width)
+    shield = np.zeros_like(im, dtype=np.uint8)
+    print('weapon?name')
     for rect in bboxes:
         y1, x1, y2, x2 = rect
         shield[y1:y2, x1:x2] = 1.0
