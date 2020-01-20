@@ -19,9 +19,9 @@ def save_icon(im0, im):
         if np.sum(icon_same) > min_icon_area:
             icon_same = icon_same[:, :, np.newaxis]
             icon_3c = icon * icon_same
-            icon_name = get_icon_name(icon_3c)
             icon_4c = np.concatenate((icon_3c, icon_same * 255), axis=-1)
-            cv2.imwrite('icons/' + pos_name + '-' + icon_name + '.png', icon_4c)
+            icon_name = get_icon_name(icon_4c)
+            cv2.imwrite('icons/' + pos_name + '-' + icon_name, icon_4c)
 
 
 if __name__ == '__main__':
