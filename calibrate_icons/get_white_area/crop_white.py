@@ -25,15 +25,19 @@ def get_white_shield(im, min_rgb):
     return shield
 
 
+# def get_white_name(shield):
+#     _shield = 255 - shield[:, :, np.newaxis]
+#     shield_rgb = np.concatenate((_shield, _shield, _shield), axis=-1)
+#     shield_name = pytesseract.image_to_string(shield_rgb)
+#     print(shield_name)
+#     for gun_name in all_guns:
+#         if gun_name in shield_name:
+#             return gun_name
+#     return shield_name
+
 def get_white_name(shield):
-    _shield = 255 - shield[:, :, np.newaxis]
-    shield_rgb = np.concatenate((_shield, _shield, _shield), axis=-1)
-    shield_name = pytesseract.image_to_string(shield_rgb)
-    print(shield_name)
-    for gun_name in all_guns:
-        if gun_name in shield_name:
-            return gun_name
-    return shield_name
+    rint = np.random.randint(0, 1000)
+    return str(rint)
 
 
 if __name__ == '__main__':

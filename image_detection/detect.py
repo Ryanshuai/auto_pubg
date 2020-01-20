@@ -23,7 +23,7 @@ class Detector:
         return absent_return
 
     def match_white(self, crop_im, min_rgb=230, avr_thr=10, absent_return=''):
-        white_shield = get_white_shield(crop_im, min_rgb)
+        white_shield = get_white_shield(crop_im, min_rgb).astype(np.uint8)
         for item_name, png in self.png_dict.items():
             avr = np.sum(np.abs(white_shield - png))/white_shield.size
             if avr < avr_thr:
