@@ -3,9 +3,6 @@ import cv2
 from skimage.measure import label, regionprops
 
 
-# label_im = label(shield, connectivity=shield.ndim)
-# props = regionprops(label_im)
-
 def get_white_shield(im, min_rgb):
     shield_rgb = np.where(im > min_rgb, 255, 0).astype(np.uint8)
     shield = shield_rgb[:, :, 0] & shield_rgb[:, :, 1] & shield_rgb[:, :, 2]
@@ -28,6 +25,8 @@ def get_big_icon_4c(im):
             bbox = prop.bbox
     y1, x1, y2, x2 = bbox
     white_area = im[y1:y2, x1:x2]
+    cv2.imshow('white_area', white_area)
+    cv2.waitKey()
 
     # get big_icon--------------------------------------------
     shield = get_white_shield(white_area, 190)
@@ -45,8 +44,10 @@ def get_big_icon_4c(im):
     big_icon = white_area[y1:y2, x1:x2]
 
     # get big_icon_4c------------------------------------------
-    shield = get_white_shield(big_icon, 150)
-    big_icon_4c = np.concatenate((big_icon, (255 - shield)[:, :, np.newaxis]), axis=-1)
+    shield = get_white_shield(big_icon, 130)
+    shield = (255 - shield)[:, :, np.newaxis]
+    big_icon *= (shield / 255).astype(np.uint8)
+    big_icon_4c = np.concatenate((big_icon, shield), axis=-1)
 
     return big_icon_4c
 

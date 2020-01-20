@@ -100,11 +100,11 @@ if __name__ == '__main__':
         cv2.imshow(im_path[-6:], rect_screen)
         cv2.waitKey()
 
-    im_path = 'D:/github_project/auto_press_down_gun/press_gun/generate_distance/groza/0.png'
+    im_path = 'D:/github_project/auto_press_down_gun/press_gun/generate_distance/groza/x1r.png'
     rect_screen = cv2.imread(im_path)
     draw_bullet_hole(rect_screen)
 
-    im_path = 'D:/github_project/auto_press_down_gun/press_gun/generate_distance/groza/1.png'
+    im_path = 'D:/github_project/auto_press_down_gun/press_gun/generate_distance/groza/x15.png'
     rect_screen = cv2.imread(im_path)
     draw_bullet_hole(rect_screen)
 
