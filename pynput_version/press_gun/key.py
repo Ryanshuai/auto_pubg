@@ -1,5 +1,5 @@
 import threading
-from pynput import keyboard
+from pynput import keyboard, mouse
 from PyQt5.QtCore import pyqtSignal, QObject
 
 from image_detection.detect import Detector
@@ -34,58 +34,52 @@ class Key:
         # self.gun_detector['magazine'] = Detector('magazine', 'icon')
 
         self.temp_qobject = Temp_QObject()
-        self.listener = keyboard.Listener(on_press=self.on_press)
+        self.key_listener = keyboard.Listener(on_press=self.on_press)
+        self.mouse_listener = mouse.Listener(on_click=self.on_click)
 
     def on_press(self, key):
-        if key == keyboard.Key.tab:  # tab
+        if key == keyboard.Key.tab:
+            import time
+            time.sleep(0.2)
             self.screen = win32_cap()
             threading.Timer(0.00001, self.tab_func).start()
 
-        if key == 'b':  # b
-            print('b')
+        if key == keyboard.Key.f12:
+            self.all_states.dont_press = True
+        key = str(key)
+        if key == 'g' or key == '5':
+            self.all_states.dont_press = True
+
+        if key == 'b':
             self.all_states.dont_press = False
             threading.Timer(0.5, self.set_fire_mode).start()
 
-        if key == 1:  # 1
-            print(1)
+        if key == '1':
             self.all_states.set_weapon_n(0)
             self.print_state()
             # threading.Timer(0.5, self.set_fire_mode).start()
 
-        if key == 2:  # 2
-            print(2)
+        if key == '2':
             self.all_states.set_weapon_n(1)
             self.print_state()
             # threading.Timer(0.5, self.set_fire_mode).start()
 
-        # if key == 123 or key == 71 or key == 53:  # F12 g 5
-        #     self.all_states.dont_press = True
+    def on_click(self, x, y, button, pressed):
+        if button == mouse.Button.left and pressed and (not self.all_states.dont_press):
+            print(2222)
+            n = self.all_states.weapon_n
+            if self.all_states.weapon[n].fire_mode in ['full', '']:
+                print(self.all_states.weapon[n].dist_seq)
+                print(self.all_states.weapon[n].time_seq)
+                self.press = Press(self.all_states.weapon[n].dist_seq, self.all_states.weapon[n].time_seq)
+                self.press.start()
 
-        if key == ',':  # ,
-            if not self.all_states.dont_press:
-                n = self.all_states.weapon_n
-                if self.all_states.weapon[n].fire_mode in ['full', '']:
-                    self.press = Press(self.all_states.weapon[n].dist_seq, self.all_states.weapon[n].time_seq)
-                    self.press.start()
-
-        if key == '.':  # .
-            if not self.all_states.dont_press:
-                if hasattr(self, 'press'):
-                    self.press.stop()
-
-        # if keycode == 219 and press:  # [
-        #     if self.posture_detect.detect(get_screen('posture')) in ['stand', 'kneel', 'creep']:
-        #         self.all_states.dont_press = False
-        #     else:
-        #         self.all_states.dont_press = True
-
-        # if keycode == 221 and press:  # ]
-        #     self.all_states.dont_press = False
+        if button == mouse.Button.left and (not pressed) and (not self.all_states.dont_press):
+            if hasattr(self, 'press'):
+                self.press.stop()
 
     def tab_func(self):
-        self.all_states.dont_press = True
-        if 'time' == self.in_tab_detect.detect(get_crop('in-tab', self.screen)):
-            self.all_states.dont_press = False
+        if 'type' == self.in_tab_detect.detect(get_crop('in-tab', self.screen)):
 
             position_filtered = dict(filter(lambda x: ('gun' in x[0]), crop_position.items()))
             for position, (y1, x1, y2, x2) in position_filtered.items():
@@ -97,12 +91,16 @@ class Key:
                 if '2' in position:
                     self.all_states.weapon[1].set(pos, crop_name)
 
+            self.all_states.weapon[0].fire_mode = 'full'
+            self.all_states.weapon[0].name = 'm762'
+            self.all_states.weapon[0].type = 'ar'
+
             self.all_states.weapon[0].set_seq()
             self.all_states.weapon[1].set_seq()
             self.print_state()
 
             # self.all_states.set_screen_state('3p')
-            threading.Timer(0.5, self.set_fire_mode).start()
+            # threading.Timer(0.5, self.set_fire_mode).start()
 
     def set_fire_mode(self):
         fire_mode_crop = get_screen('fire-mode')
@@ -140,4 +138,4 @@ def get_screen(name):
 if __name__ == '__main__':
     all_states = All_States()
     k = Key(all_states)
-    k.listener.run()
+    k.key_listener.run()

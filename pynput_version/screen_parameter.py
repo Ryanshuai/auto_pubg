@@ -22,6 +22,7 @@ max_icon_diff = 20
 
 white_min_rgb = {
     'name': 245,
+    'in-tab': 235,
     'posture': 200,
     'fire-mode': 235,
 }

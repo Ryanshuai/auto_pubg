@@ -1,7 +1,7 @@
 import os
 import shutil
 import threading
-from pykeyboard import PyKeyboardEvent
+from pynput import keyboard
 from PyQt5.QtCore import pyqtSignal, QObject
 
 from image_detection.detect import Detector
@@ -16,9 +16,8 @@ class Temp_QObject(QObject):
     state_str_signal = pyqtSignal(str)
 
 
-class Key_Listener(PyKeyboardEvent):
+class Key_Listener:
     def __init__(self, all_states):
-        PyKeyboardEvent.__init__(self)
 
         self.all_states = all_states
         self.screen = None
@@ -40,36 +39,37 @@ class Key_Listener(PyKeyboardEvent):
         self.temp_qobject = Temp_QObject()
         os.makedirs('calibrate_distance/image_match_dir', exist_ok=True)
         self.gun_name_dir = ''
+        self.listener = keyboard.Listener(on_press=self.on_press)
 
-    def tap(self, keycode, character, press):
-        if keycode == 9 and press:  # tab
+    def on_press(self, key):
+        if key == 9:  # tab
             self.screen = win32_cap()
             threading.Timer(0.00001, self.tab_func).start()
 
-        if keycode == 66 and press:  # b
+        elif key == 66:  # b
             self.all_states.dont_press = False
             threading.Timer(0.5, self.set_fire_mode).start()
 
-        if keycode == 49 and press:  # 1
+        elif key == 49:  # 1
             self.all_states.set_weapon_n(0)
             threading.Timer(0.5, self.set_fire_mode).start()
 
-        if keycode == 50 and press:  # 2
+        elif key == 50:  # 2
             self.all_states.set_weapon_n(1)
             threading.Timer(0.5, self.set_fire_mode).start()
 
-        if (keycode == 123 or keycode == 71 or keycode == 53) and press:  # F12 g 5
+        elif key == 123 or key == 71 or key == 53:  # F12 g 5
             self.all_states.dont_press = True
 
-        if keycode == 162 and press:  # ctrl
+        elif key == 162:  # ctrl
             for i in range(100):
                 if not os.path.exists(self.gun_name_dir + str(i)):
                     os.makedirs(self.gun_name_dir + str(i))
                     self.image_dir = self.gun_name_dir + str(i) + '/'
                     break
-            win32_cap(filename=self.image_dir + '0.png', rect=(100, 100, 400, 1600))
+            win32_cap(filename=self.image_dir + '12221.png', rect=(100, 100, 400, 1600))
 
-        if keycode == 188 and press:  # ,
+        elif key == ',':  # ,
             if not self.all_states.dont_press:
                 n = self.all_states.weapon_n
                 if self.all_states.weapon[n].type in ['ar', 'smg', 'mg']:
@@ -81,11 +81,11 @@ class Key_Listener(PyKeyboardEvent):
                     self.press = Press(time_interval, length=5, image_dir=self.image_dir)
                     self.press.start()
 
-        if keycode == 190 and press:  # .
+        elif key == 190:  # .
             if not self.all_states.dont_press:
                 self.press.stop()
 
-        if keycode == 219 and press:  # [
+        elif key == 219:  # [
             if self.posture_detect.detect(get_screen('posture')) in ['stand', 'kneel', 'creep']:
                 self.all_states.dont_press = False
             else:

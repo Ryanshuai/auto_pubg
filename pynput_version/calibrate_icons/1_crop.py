@@ -5,7 +5,7 @@ import numpy as np
 from itertools import product
 
 from calibrate_icons.match_icon import get_icon_name
-from calibrate_icons.crop_white import get_white_shield
+from calibrate_icons.crop_white import get_white_shield, crop_white
 from calibrate_icons.get_position.position_constant import crop_position
 
 
@@ -49,19 +49,19 @@ if __name__ == '__main__':
     crop_dir = 'screens/white'
     os.makedirs(save_dir, exist_ok=True)
 
-    # # in-tab -------------------------------------
-    # for im_name in os.listdir(crop_dir):
-    #     im = cv2.imread(os.path.join(crop_dir, im_name))
-    #     y1, x1, y2, x2 = crop_position['in-tab']
-    #     rect_im = im[y1:y2, x1:x2]
-    #     if has_sth(rect_im):
-    #         crop_name, shield = crop_white(rect_im)
-    #         if shield is not None:
-    #             pos_n = 'in-tab'
-    #             os.makedirs(os.path.join(save_dir, pos_n), exist_ok=True)
-    #             cv2.imwrite(os.path.join(save_dir, pos_n, crop_name + '.png'), shield)
-    #             break
-    #
+    # in-tab -------------------------------------
+    for im_name in os.listdir(crop_dir):
+        im = cv2.imread(os.path.join(crop_dir, im_name))
+        y1, x1, y2, x2 = crop_position['in-tab']
+        rect_im = im[y1:y2, x1:x2]
+        if has_sth(rect_im):
+            crop_name, shield = crop_white(rect_im)
+            if shield is not None:
+                pos_n = 'in-tab'
+                os.makedirs(os.path.join(save_dir, pos_n), exist_ok=True)
+                cv2.imwrite(os.path.join(save_dir, pos_n, crop_name + '.png'), shield)
+                break
+
     # # fire-mode -------------------------------------
     # for im_name in os.listdir(crop_dir):
     #     im = cv2.imread(os.path.join(crop_dir, im_name))

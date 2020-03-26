@@ -5,7 +5,7 @@ from calibrate_icons.gun_name_OCR import get_ocr_name
 
 
 def crop_white(rect_im):
-    shield = get_white_shield(rect_im, white_min_rgb)
+    shield = get_white_shield(rect_im, white_min_rgb['type'])
     if np.sum(shield) > 255:
         shield_ocr = 255 - get_white_shield(rect_im, 190)
         ocr_name = get_ocr_name(shield_ocr)
