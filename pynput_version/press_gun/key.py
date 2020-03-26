@@ -1,5 +1,5 @@
 import threading
-from pykeyboard import PyKeyboardEvent
+from pynput import keyboard
 from PyQt5.QtCore import pyqtSignal, QObject
 
 from image_detection.detect import Detector
@@ -13,10 +13,8 @@ class Temp_QObject(QObject):
     state_str_signal = pyqtSignal(str)
 
 
-class Key_Listener(PyKeyboardEvent):
+class Key:
     def __init__(self, all_states):
-        PyKeyboardEvent.__init__(self)
-
         self.all_states = all_states
         self.screen = None
         self.in_block = False
@@ -36,37 +34,41 @@ class Key_Listener(PyKeyboardEvent):
         # self.gun_detector['magazine'] = Detector('magazine', 'icon')
 
         self.temp_qobject = Temp_QObject()
+        self.listener = keyboard.Listener(on_press=self.on_press)
 
-    def tap(self, keycode, character, press):
-        if keycode == 9 and press:  # tab
+    def on_press(self, key):
+        if key == keyboard.Key.tab:  # tab
             self.screen = win32_cap()
             threading.Timer(0.00001, self.tab_func).start()
 
-        if keycode == 66 and press:  # b
+        if key == 'b':  # b
+            print('b')
             self.all_states.dont_press = False
             threading.Timer(0.5, self.set_fire_mode).start()
 
-        if keycode == 49 and press:  # 1
+        if key == 1:  # 1
+            print(1)
             self.all_states.set_weapon_n(0)
             self.print_state()
             # threading.Timer(0.5, self.set_fire_mode).start()
 
-        if keycode == 50 and press:  # 2
+        if key == 2:  # 2
+            print(2)
             self.all_states.set_weapon_n(1)
             self.print_state()
             # threading.Timer(0.5, self.set_fire_mode).start()
 
-        if (keycode == 123 or keycode == 71 or keycode == 53) and press:  # F12 g 5
-            self.all_states.dont_press = True
+        # if key == 123 or key == 71 or key == 53:  # F12 g 5
+        #     self.all_states.dont_press = True
 
-        if keycode == 188 and press:  # ,
+        if key == ',':  # ,
             if not self.all_states.dont_press:
                 n = self.all_states.weapon_n
                 if self.all_states.weapon[n].fire_mode in ['full', '']:
                     self.press = Press(self.all_states.weapon[n].dist_seq, self.all_states.weapon[n].time_seq)
                     self.press.start()
 
-        if keycode == 190 and press:  # .
+        if key == '.':  # .
             if not self.all_states.dont_press:
                 if hasattr(self, 'press'):
                     self.press.stop()
@@ -79,9 +81,6 @@ class Key_Listener(PyKeyboardEvent):
 
         # if keycode == 221 and press:  # ]
         #     self.all_states.dont_press = False
-
-    def escape(self, event):
-        return False
 
     def tab_func(self):
         self.all_states.dont_press = True
@@ -140,5 +139,5 @@ def get_screen(name):
 
 if __name__ == '__main__':
     all_states = All_States()
-    k = Key_Listener(all_states)
-    k.run()
+    k = Key(all_states)
+    k.listener.run()

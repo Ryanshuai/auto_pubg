@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from screen_parameter import show_position_y, show_position_x, show_size_y, show_size_x
-from press_gun.key_listener import Key_Listener
+from press_gun.key import Key
 from all_states import All_States
 
 
@@ -24,9 +24,9 @@ class Ui_Dialog(object):
 
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
-        self.key_listener = Key_Listener(All_States())
-        self.key_listener.temp_qobject.state_str_signal[str].connect(self.retranslateUi)
-        self.key_listener.start()
+        self.key = Key(All_States())
+        self.key.temp_qobject.state_str_signal[str].connect(self.retranslateUi)
+        self.key.listener.start()
 
     def retranslateUi(self, text):
         _translate = QtCore.QCoreApplication.translate

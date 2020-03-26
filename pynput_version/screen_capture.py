@@ -7,7 +7,7 @@ import win32gui
 import win32ui
 import os
 from os.path import join
-from pykeyboard import PyKeyboardEvent
+from pynput import keyboard
 
 
 def win32_cap(filename=None, rect=None):
@@ -48,23 +48,20 @@ def win32_cap(filename=None, rect=None):
     return im
 
 
-class Key_listener(PyKeyboardEvent):
+class Key:
     def __init__(self):
-        PyKeyboardEvent.__init__(self)
         self.i = 0
+        self.listener = keyboard.Listener(on_press=self.on_press)
 
-    def tap(self, keycode, character, press):
-        print(keycode, character, press)
-        if keycode == 162 and press:
+    def on_press(self, key):
+        print(key)
+        if key == keyboard.Key.ctrl_l:
             if not os.path.exists('ctrl_cap'):
                 os.makedirs('ctrl_cap', exist_ok=True)
             win32_cap('ctrl_cap/' + str(self.i) + ".png")
             self.i += 1
 
-    def escape(self, event):
-        return False
-
 
 if __name__ == '__main__':
-    kl = Key_listener()
-    kl.run()
+    kl = Key()
+    kl.listener.run()
