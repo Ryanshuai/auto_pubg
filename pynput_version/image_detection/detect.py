@@ -45,9 +45,9 @@ class Detector:
             avr = np.sum(np.abs(white_shield - png)) / np.sum(white_shield)
             # cv2.imwrite('detection_debug_image/' + item_name + str(avr) + '.png', png)
             # cv2.imwrite('detection_debug_image/target.png', white_shield)
-            print('test', item_name, avr)
+            # print('test', item_name, avr)
             if avr < avr_thr:
-                print(item_name, avr)
+                # print(item_name, avr)
                 return item_name
         return self.default
 
