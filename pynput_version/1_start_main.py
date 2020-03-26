@@ -26,8 +26,6 @@ class Ui_Dialog(object):
 
         self.key = Key(All_States())
         self.key.temp_qobject.state_str_signal[str].connect(self.retranslateUi)
-        self.key.key_listener.start()
-        self.key.mouse_listener.start()
 
     def retranslateUi(self, text):
         _translate = QtCore.QCoreApplication.translate

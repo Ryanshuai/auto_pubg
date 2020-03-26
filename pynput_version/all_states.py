@@ -167,7 +167,7 @@ class Weapon():
 class All_States():
     def __init__(self):
         self.dont_press = False
-        # self.screen_state = '3p'  # 1p, 3p, tab, s1, s2, ... s15
+        self.screen_state = '3p'  # 1p, 3p, tab, map s1, s2, ... s15
 
         self.weapon_n = 0
         self.weapon = [Weapon(), Weapon()]

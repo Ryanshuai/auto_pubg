@@ -26,7 +26,7 @@ white_min_rgb = {
     'posture': 200,
     'fire-mode': 235,
 }
-min_white_rate = 0.003 * screen_h_factor * screen_h_factor
+min_white_rate = 0.3 * screen_h_factor * screen_h_factor
 
 min_gun_name_high = 15 * screen_h_factor
 max_gun_name_high = 25 * screen_h_factor
