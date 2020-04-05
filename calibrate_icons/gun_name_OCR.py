@@ -1,7 +1,11 @@
 import cv2
 import numpy as np
-import pytesseract
+import tesserocr
 import Levenshtein
+from PIL import Image
+import os
+
+# os.chdir(r"D:\Anaconda\Lib\site-packages\tesserocr")
 
 
 def get_ocr_name(shield):
@@ -12,8 +16,9 @@ def get_ocr_name(shield):
     im_tess = 255 - shield
     im_tess = np.pad(im_tess, ((15, 15), (15, 15), (0, 0)), 'constant', constant_values=255)
     im_tess = cv2.GaussianBlur(im_tess, (3, 3), 1)
-    shield_name = pytesseract.image_to_string(im_tess)
-
+    pil_im_tess = Image.fromarray(cv2.cvtColor(im_tess, cv2.COLOR_BGR2RGB))
+    shield_name = tesserocr.image_to_text(pil_im_tess)
+    shield_name = shield_name.replace('\n', '')
     real_name = get_similar_name(shield_name)
 
     print('gun_name_OCR.py: ', shield_name, '\t-->', real_name)
@@ -62,17 +67,20 @@ gun_name_dict = {
     'win94': 'Win94',
     'dbs': 'DBS',
     'm24': 'M24',
+    '98k': 'Kar98k',
     'qbu': 'QBU',
     'sks': 'SKS',
     'mp5k': 'MP5K',
     's12k': 'S12K',
     'dp28': 'DP-28',
+    'm16': 'M16A4',
 }
 
 if __name__ == '__main__':
     import os
 
-    im_dir = 'crop'
-    for im_name in os.listdir(im_dir):
-        im = cv2.imread(os.path.join(im_dir, im_name))
-        name = get_ocr_name(im)
+    # im_dir = 'crop'
+    # for im_name in os.listdir(im_dir):
+    #     im = cv2.imread(os.path.join(im_dir, im_name))
+    #     name = get_ocr_name(im)
+    print(get_similar_name("MkI4"))

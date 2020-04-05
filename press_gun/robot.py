@@ -1,5 +1,4 @@
 import threading
-import time
 from pynput import keyboard, mouse
 from PyQt5.QtCore import pyqtSignal, QObject
 
@@ -8,39 +7,40 @@ from calibrate_icons.get_position.position_constant import crop_position
 from all_states import All_States
 from press_gun.press import Press
 from screen_capture import win32_cap
+from screen_parameter import min_white_rate
 
 
 class Temp_QObject(QObject):
     state_str_signal = pyqtSignal(str)
 
 
-class Key:
+class Robot:
     def __init__(self, all_states):
         self.all_states = all_states
         self.screen = None
         self.in_block = False
         self.in_right = False
 
-        self.fire_mode_detect = Detector('fire-mode', 'white')
-        self.in_tab_detect = Detector('in-tab', 'white')
-        self.posture_detect = Detector('posture', 'white')
+        self.fire_mode_detect = Detector('fire-mode', 'white', min_white_rate['fire-mode'])
+        self.in_tab_detect = Detector('in-tab', 'white', min_white_rate['in-tab'])
+        self.posture_detect = Detector('posture', 'white', min_white_rate['posture'])
         # self.in_scope_detect = Detector('in_scope')
 
         self.gun_detector = dict()
-        self.gun_detector['name'] = Detector('name', 'white')
-        self.gun_detector['scope'] = Detector('scope', 'icon', '1')
+        self.gun_detector['name'] = Detector('name', 'white', min_white_rate['name'])
+        self.gun_detector['scope'] = Detector('scope', 'icon', default='1')
         self.gun_detector['muzzle'] = Detector('muzzle', 'icon')
         self.gun_detector['grip'] = Detector('grip', 'icon')
         self.gun_detector['butt'] = Detector('butt', 'icon')
         # self.gun_detector['magazine'] = Detector('magazine', 'icon')
 
-        self.temp_qobject = Temp_QObject()
         self.key_listener = keyboard.Listener(on_press=self.on_press)
         self.mouse_listener = mouse.Listener(on_click=self.on_click)
         self.key_control = keyboard.Controller()
-
         self.key_listener.start()
         self.mouse_listener.start()
+
+        self.temp_qobject = Temp_QObject()
 
     def on_press(self, key):
         if key == keyboard.Key.tab:
@@ -61,28 +61,35 @@ class Key:
             self.all_states.set_weapon_n(int(key) - 1)
             threading.Timer(0.5, self.set_fire_mode).start()
 
+    def is_press(self, weapon):
+        if weapon.type in ['ar', 'smg', 'mg'] and weapon.fire_mode in ['full', '']:
+            return True
+        elif weapon.type in ['dmr', 'shotgun'] and weapon.fire_mode in ['single', '']:
+            return True
+        return False
+
     def on_click(self, x, y, button, pressed):
         if button == mouse.Button.left and pressed and (not self.all_states.dont_press):
             n = self.all_states.weapon_n
-            if self.all_states.weapon[n].fire_mode in ['full', '']:
+            if self.is_press(self.all_states.weapon[n]):
                 self.press = Press(self.all_states.weapon[n].dist_seq, self.all_states.weapon[n].time_seq)
                 self.press.start()
 
         if button == mouse.Button.left and (not pressed) and (not self.all_states.dont_press):
             if hasattr(self, 'press'):
                 self.press.stop()
-            if self.all_states.screen_state == 'tab':
-                threading.Timer(0.0001, self.tab_func).start()
 
-        if button == mouse.Button.right and (not pressed):
+        if button in [mouse.Button.right, mouse.Button.left] and (not pressed):
             if self.all_states.screen_state == 'tab':
                 threading.Timer(0.0001, self.tab_func).start()
 
     def is_in_tab(self):
         if 'type' == self.in_tab_detect.detect(get_screen('in-tab')):
             self.all_states.screen_state = 'tab'
+            self.all_states.dont_press = True
         else:
             self.all_states.screen_state = 'default'
+            self.all_states.dont_press = False
             threading.Timer(0.5, self.set_fire_mode).start()
 
     def tab_func(self):
@@ -97,15 +104,9 @@ class Key:
             if '2' in position:
                 self.all_states.weapon[1].set(pos, crop_name)
 
-        # self.all_states.weapon[0].fire_mode = 'full'
-        # self.all_states.weapon[0].name = 'm762'
-        # self.all_states.weapon[0].type = 'ar'
-
         self.all_states.weapon[0].set_seq()
         self.all_states.weapon[1].set_seq()
         self.print_state()
-
-        # self.all_states.set_screen_state('3p')
 
     def set_fire_mode(self):
         fire_mode_crop = get_screen('fire-mode')
@@ -143,5 +144,5 @@ def get_screen(name=None):
 
 if __name__ == '__main__':
     all_states = All_States()
-    k = Key(all_states)
+    k = Robot(all_states)
     k.key_listener.run()

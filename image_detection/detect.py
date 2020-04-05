@@ -2,12 +2,13 @@ import numpy as np
 import cv2
 import os
 from image_detection.utils import get_white_shield
-from screen_parameter import white_min_rgb, min_white_rate, max_icon_diff
+from screen_parameter import white_min_rgb, max_icon_diff
 
 
 class Detector:
-    def __init__(self, pos_name, type='white', default=''):  # white or icon
+    def __init__(self, pos_name, type='white', min_white=240, default=''):  # white or icon
         self.type = type
+        self.min_white = min_white
         self.default = default
         self.png_dict = dict()
         self.pos_name = pos_name
@@ -19,18 +20,21 @@ class Detector:
 
     def detect(self, crop_im):
         if self.type == 'white':
-            return self.match_white(crop_im)
+            name = self.match_white(crop_im, self.min_white)
         else:
-            return self.match_avr_thr(crop_im)
+            name = self.match_avr_thr(crop_im)
+        return name
 
     def match_avr_thr(self, crop_im, avr_thr=max_icon_diff):
         for item_name, png in self.png_dict.items():
             avr = detect_3d_diff_average(crop_im, png)
+            # print('test', item_name, avr)
             if avr < avr_thr:
+                # print(item_name, avr)
                 return item_name
         return self.default
 
-    def match_white(self, crop_im, avr_thr=min_white_rate):
+    def match_white(self, crop_im, avr_thr):
         min_rgb = white_min_rgb.get(self.pos_name, 240)
         white_shield = get_white_shield(crop_im, min_rgb).astype(np.uint8)
         if self.pos_name == 'posture':
@@ -40,7 +44,9 @@ class Detector:
             return self.default
         for item_name, png in self.png_dict.items():
             avr = np.sum(np.abs(white_shield - png)) / np.sum(white_shield)
-            # print('test',item_name, avr)
+            # cv2.imwrite('detection_debug_image/' + item_name + str(avr) + '.png', png)
+            # cv2.imwrite('detection_debug_image/target.png', white_shield)
+            # print('test', item_name, avr)
             if avr < avr_thr:
                 # print(item_name, avr)
                 return item_name

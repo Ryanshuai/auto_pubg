@@ -49,8 +49,8 @@ def win32_cap(filename=None, rect=None):
 
 
 class Key:
-    def __init__(self):
-        self.i = 0
+    def __init__(self, i=0):
+        self.i = i
         self.listener = keyboard.Listener(on_press=self.on_press)
 
     def on_press(self, key):
@@ -63,5 +63,5 @@ class Key:
 
 
 if __name__ == '__main__':
-    kl = Key()
+    kl = Key(300)
     kl.listener.run()

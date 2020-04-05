@@ -22,10 +22,16 @@ max_icon_diff = 20
 
 white_min_rgb = {
     'name': 245,
+    'in-tab': 235,
     'posture': 200,
     'fire-mode': 235,
 }
-min_white_rate = 0.003 * screen_h_factor * screen_h_factor
+min_white_rate = {
+    'name': 0.04 * screen_h_factor * screen_h_factor,
+    'in-tab': 0.001 * screen_h_factor * screen_h_factor,
+    'posture': 0.04 * screen_h_factor * screen_h_factor,
+    'fire-mode': 0.0001 * screen_h_factor * screen_h_factor
+}
 
 min_gun_name_high = 15 * screen_h_factor
 max_gun_name_high = 25 * screen_h_factor
