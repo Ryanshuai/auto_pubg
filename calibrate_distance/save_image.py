@@ -3,15 +3,15 @@ import os
 from screen_capture import win32_cap
 
 
-class Press(threading.Thread):
-    def __init__(self, time_interval, length=45, image_dir=''):
-        self.image_dir = image_dir
+class Image_Saver(threading.Thread):
+    def __init__(self, time_interval, image_dir=''):
         threading.Thread.__init__(self)
-        self.dist_seq, self.time_seq = [0] * length, [x * time_interval for x in range(length)]
+        self.image_dir = image_dir
+        self.time_seq = [x * time_interval for x in range(50)]
         self._loop = True
 
     def run(self):
-        for idx, (time, dist) in enumerate(zip(self.time_seq, self.dist_seq)):
+        for idx, time in enumerate(self.time_seq):
             threading.Timer(time, self.task_func, args=[idx + 1]).start()
 
     def task_func(self, idx):

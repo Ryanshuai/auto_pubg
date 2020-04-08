@@ -1,6 +1,6 @@
 import math
 
-from press_gun.time_periods_constant import time_periods
+from state.time_periods_constant import time_periods
 from calibrate_distance.gun_distance_constant import dist_lists
 
 all_guns = ['98k', 'm24', 'awm', 'mini14', 'mk14', 'qbu', 'sks', 'slr', 'vss', 'akm', 'aug', 'groza', 'm416', 'qbz',
@@ -96,12 +96,14 @@ class Weapon():
         self.grip_factor = 1
         self.butt_factor = 1
 
+        self.time_interval = 0.1
         self.dist_seq = list()
         self.time_seq = list()
 
     def set(self, pos, state):
         if pos == 'name':
             self.name = state
+            self.time_interval = time_periods.get(self.name, 0.1)
             if self.name in sp:
                 self.type = 'sp'
             elif self.name in dmr:
