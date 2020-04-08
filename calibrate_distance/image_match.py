@@ -38,7 +38,7 @@ def detect_y_move(img0, img, type='mode'):
 
 
 def detect_dir(img_dir, type='mode'):
-    y_move_array = np.zeros((45))
+    y_move_array = np.zeros((50))
     for i in range(len(os.listdir(img_dir)) - 1):
         print('checking: ', img_dir, i, i + 1)
         im0 = cv2.imread(os.path.join(img_dir, str(i) + '.png'))

@@ -111,9 +111,9 @@ class Weapon():
             elif self.name in ar:
                 self.type = 'ar'
             elif self.name in smg:
-                self.type = 'mg'
-            elif self.name in mg:
                 self.type = 'smg'
+            elif self.name in mg:
+                self.type = 'mg'
             elif self.name in shotgun:
                 self.type = 'shotgun'
         if pos == 'fire-mode':
@@ -159,7 +159,7 @@ class Weapon():
     def set_seq(self):
         self.all_factor = self.scope_factor * self.muzzle_factor * self.grip_factor * self.butt_factor
         factor = factor_scope(self.all_factor)
-        if self.type in ['ar', 'smg', 'sm']:
+        if self.type in ['ar', 'smg', 'mg']:
             self.dist_seq, self.time_seq = calculate_press_seq(self.name, factor)
         elif self.type in ['dmr', 'shotgun']:
             self.dist_seq = [i * factor for i in dist_lists.get(self.name, [0])]

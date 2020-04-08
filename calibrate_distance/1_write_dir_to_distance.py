@@ -8,9 +8,10 @@ from calibrate_distance.write_dict import write_to_file_abs
 print('start detecting y_move_list')
 
 root_dir = 'image_match_dir'
-for gun_name in os.listdir(root_dir):
+# for gun_name in os.listdir(root_dir):
+for gun_name in ['tommy']:
     gun_name_dir = os.path.join(root_dir, gun_name)
-    y_move_array_acc = np.zeros((45))
+    y_move_array_acc = np.zeros((50))
     for time in os.listdir(gun_name_dir):
         seq_dir = os.path.join(gun_name_dir, time)
         if gun_name in dmr:
