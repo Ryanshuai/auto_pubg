@@ -9,7 +9,7 @@ print('start detecting y_move_list')
 
 root_dir = 'image_match_dir'
 # for gun_name in os.listdir(root_dir):
-for gun_name in ['tommy']:
+for gun_name in ['ump45']:
     gun_name_dir = os.path.join(root_dir, gun_name)
     y_move_array_acc = np.zeros((50))
     for time in os.listdir(gun_name_dir):

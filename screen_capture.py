@@ -63,5 +63,5 @@ class Key:
 
 
 if __name__ == '__main__':
-    kl = Key(300)
+    kl = Key(320)
     kl.listener.run()

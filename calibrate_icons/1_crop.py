@@ -64,17 +64,17 @@ if __name__ == '__main__':
     #             break
 
     # fire-mode -------------------------------------
-    for im_name in os.listdir(crop_dir):
-        im = cv2.imread(os.path.join(crop_dir, im_name))
-        y1, x1, y2, x2 = crop_position['fire-mode']
-        rect_im = im[y1:y2, x1:x2]
-        if has_white(rect_im):
-            # cv2.imshow('rect_im', rect_im)
-            shield = get_white_shield(rect_im, white_min_rgb["fire-mode"])
-            # cv2.imshow('sh', shield)
-            # cv2.waitKey()
-            os.makedirs(os.path.join(save_dir, 'fire-mode'), exist_ok=True)
-            cv2.imwrite(os.path.join(save_dir, 'fire-mode', im_name), shield)
+    # for im_name in os.listdir(crop_dir):
+    #     im = cv2.imread(os.path.join(crop_dir, im_name))
+    #     y1, x1, y2, x2 = crop_position['fire-mode']
+    #     rect_im = im[y1:y2, x1:x2]
+    #     if has_white(rect_im):
+    #         # cv2.imshow('rect_im', rect_im)
+    #         shield = get_white_shield(rect_im, white_min_rgb["fire-mode"])
+    #         # cv2.imshow('sh', shield)
+    #         # cv2.waitKey()
+    #         os.makedirs(os.path.join(save_dir, 'fire-mode'), exist_ok=True)
+    #         cv2.imwrite(os.path.join(save_dir, 'fire-mode', im_name), shield)
 
     # # posture -------------------------------------
     # for im_name in os.listdir(crop_dir):
@@ -89,20 +89,20 @@ if __name__ == '__main__':
     #         os.makedirs(os.path.join(save_dir, 'posture'), exist_ok=True)
     #         cv2.imwrite(os.path.join(save_dir, 'posture', im_name), shield)
 
-    # # gun_name -------------------------------------
-    # icon_list = list()
-    # for im_name in os.listdir(crop_dir):
-    #     im = cv2.imread(os.path.join(crop_dir, im_name))
-    #     for pos_name, pos_rect in crop_position.items():
-    #         if 'white' in pos_name:
-    #             y1, x1, y2, x2 = pos_rect
-    #             rect_im = im[y1:y2, x1:x2]
-    #             if has_sth(rect_im):
-    #                 crop_name, shield = crop_white(rect_im, white_min_rgb["name"])
-    #                 if shield is not None:
-    #                     pos_n = pos_name.split('_')[-1]
-    #                     os.makedirs(os.path.join(save_dir, pos_n), exist_ok=True)
-    #                     cv2.imwrite(os.path.join(save_dir, pos_n, crop_name + '.png'), shield)
+    # gun_name -------------------------------------
+    icon_list = list()
+    for im_name in os.listdir(crop_dir):
+        im = cv2.imread(os.path.join(crop_dir, im_name))
+        for pos_name, pos_rect in crop_position.items():
+            if 'white' in pos_name:
+                y1, x1, y2, x2 = pos_rect
+                rect_im = im[y1:y2, x1:x2]
+                if has_sth(rect_im):
+                    crop_name, shield = crop_white(rect_im, white_min_rgb["name"])
+                    if shield is not None:
+                        pos_n = pos_name.split('_')[-1]
+                        os.makedirs(os.path.join(save_dir, pos_n), exist_ok=True)
+                        cv2.imwrite(os.path.join(save_dir, pos_n, crop_name + '.png'), shield)
     #
     # # # attach -------------------------------------
     # crop_dir_list = ['screens/icon1', 'screens/icon4']
