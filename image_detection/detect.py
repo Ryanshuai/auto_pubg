@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 import os
+
 from image_detection.utils import get_white_shield
 from screen_parameter import white_min_rgb, max_icon_diff
 
@@ -18,23 +19,9 @@ class Detector:
             png = cv2.imread(os.path.join(png_dir, png_name), cv2.IMREAD_UNCHANGED)
             self.png_dict[png_name[:-4]] = png
 
-    def detect(self, crop_im):
-        if self.type == 'white':
-            name = self.match_white(crop_im, self.min_white)
-        else:
-            name = self.match_avr_thr(crop_im)
-        return name
 
-    def match_avr_thr(self, crop_im, avr_thr=max_icon_diff):
-        for item_name, png in self.png_dict.items():
-            avr = detect_3d_diff_average(crop_im, png)
-            # print('test', item_name, avr)
-            if avr < avr_thr:
-                # print(item_name, avr)
-                return item_name
-        return self.default
-
-    def match_white(self, crop_im, avr_thr):
+class WhiteDetector(Detector):
+    def detect(self, crop_im, avr_thr=max_icon_diff):
         min_rgb = white_min_rgb.get(self.pos_name, 240)
         white_shield = get_white_shield(crop_im, min_rgb).astype(np.uint8)
         if self.pos_name == 'posture':
@@ -46,9 +33,50 @@ class Detector:
             avr = np.sum(np.abs(white_shield - png)) / np.sum(white_shield)
             # cv2.imwrite('detection_debug_image/' + item_name + str(avr) + '.png', png)
             # cv2.imwrite('detection_debug_image/target.png', white_shield)
+            print('test', item_name, avr)
+            if avr < avr_thr:
+                print(item_name, avr)
+                return item_name
+        return self.default
+
+
+class DiffDetector(Detector):
+    def detect(self, crop_im, avr_thr=max_icon_diff):
+        for item_name, png in self.png_dict.items():
+            avr = detect_3d_diff_average(crop_im, png)
             # print('test', item_name, avr)
             if avr < avr_thr:
                 # print(item_name, avr)
+                return item_name
+        return self.default
+
+
+class FireModeDetector(Detector):
+    pass
+
+
+class InTabDetector(Detector):
+    pass
+
+
+class PostureDetector(Detector):
+    pass
+
+
+class GunNameDetector(Detector):
+    def detect(self, crop_im, avr_thr=max_icon_diff):
+        min_rgb = white_min_rgb.get(self.pos_name, 240)
+        white_shield = get_white_shield(crop_im, min_rgb).astype(np.uint8)
+
+        if np.sum(white_shield) == 0:
+            return self.default
+        for item_name, png in self.png_dict.items():
+            avr = np.sum(np.abs(white_shield - png)) / np.sum(white_shield)
+            # cv2.imwrite('detection_debug_image/' + item_name + str(avr) + '.png', png)
+            # cv2.imwrite('detection_debug_image/target.png', white_shield)
+            print('test', item_name, avr)
+            if avr < avr_thr:
+                print(item_name, avr)
                 return item_name
         return self.default
 

@@ -28,7 +28,7 @@ class Robot:
 
         self.fire_mode_detect = Detector('fire-mode', 'white', min_white_rate['fire-mode'])
         self.in_tab_detect = Detector('in-tab', 'white', min_white_rate['in-tab'])
-        self.posture_detect = Detector('posture', 'white', min_white_rate['posture'])
+        # self.posture_detect = Detector('posture', 'white', min_white_rate['posture'])
         # self.in_scope_detect = Detector('in_scope')
 
         self.gun_detector = dict()
