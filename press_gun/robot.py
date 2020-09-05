@@ -151,7 +151,7 @@ def prepare_calibrate_dir(name):
             image_dir += str(i) + '/'
             break
     os.makedirs(image_dir, exist_ok=True)
-    win32_cap(filename=image_dir + '0.png', rect=(100, 100, 400, 1600))
+    win32_cap(filename=image_dir + '44.png', rect=(100, 100, 400, 1600))
     return image_dir
 
 

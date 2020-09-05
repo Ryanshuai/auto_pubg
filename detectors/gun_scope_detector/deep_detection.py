@@ -1,15 +1,25 @@
-import random
-
 import cv2
 import numpy as np
+
+from detectors.utils import translate, mask_diff
+
+
+def find_dxy_mode(dx_dy_s, base=100):
+    dxy = [dx * base + dy for dx, dy in dx_dy_s]
+    counts = np.bincount(dxy)
+    print(max(counts))
+    dxy_mode = np.argmax(counts)
+    dx = dxy_mode // base
+    dy = dxy_mode % base
+    return dx, dy
 
 
 def sift_kp(image):
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    gray_image = cv2.GaussianBlur(gray_image, (3, 3), 0)
-    gray_image = cv2.Canny(gray_image, 50, 100)
-    cv2.imshow('gray_image', gray_image)
-    cv2.waitKey()
+    # gray_image = cv2.GaussianBlur(gray_image, (3, 3), 0)
+    # gray_image = cv2.Canny(gray_image, 50, 100)
+    # cv2.imshow('gray_image', gray_image)
+    # cv2.waitKey()
 
     sift = cv2.xfeatures2d.SIFT_create()
     kp, des = sift.detectAndCompute(gray_image, None)
@@ -17,17 +27,10 @@ def sift_kp(image):
     return kp_image, kp, des
 
 
-def xy_cluster_density(x_y_s):
-    mean_x_y = np.mean(x_y_s, axis=0, keepdims=True)
-    d_mean_x_y = np.sum(np.abs(x_y_s - mean_x_y))/np.shape(x_y_s)[0]
-
-    print(d_mean_x_y)
-    return d_mean_x_y
-
-
-def sift_match(img1, img2, type='mode'):
-    kpimg1, kp1, des1 = sift_kp(img1)
-    kpimg2, kp2, des2 = sift_kp(img2)
+def sift_match(img1_3c, img2_4c):
+    img2_3c = img2_4c[:, :, :3]
+    kpimg1, kp1, des1 = sift_kp(img1_3c)
+    kpimg2, kp2, des2 = sift_kp(img2_3c)
 
     bf = cv2.BFMatcher()
     matches = bf.knnMatch(des1, des2, k=2)
@@ -42,63 +45,18 @@ def sift_match(img1, img2, type='mode'):
 
     top_n = 5
     dx_dy_s = good_match_dx_dy_s[:top_n, 2:]
-    match_s = good_match_dx_dy_s[:top_n, 1]
 
-    all_goodmatch_img = cv2.drawMatches(img1, kp1, img2, kp2, match_s, None, flags=2)
+    dx, dy = find_dxy_mode(dx_dy_s)
+    translated_img1 = translate(img1_3c, -dx, -dy)
+    mask_diff_img, diff_sum = mask_diff(img2_4c[:, :, 3], img2_4c[:, :, :3], translated_img1)
 
-    density = xy_cluster_density(dx_dy_s)
+    # cv2.imshow("diff", mask_diff_img)
+    # match_s = good_match_dx_dy_s[:top_n, 1]
+    # match_img = cv2.drawMatches(img1_3c, kp1, img2_3c, kp2, match_s, None, flags=2)
+    # cv2.imshow('match_img', match_img)
+    # cv2.waitKey()
 
-    cv2.imshow('all_goodmatch_img', all_goodmatch_img)
-    cv2.waitKey()
-
-    return density
-
-
-def detect_y_move(img1, img2, type='mode'):
-    kpimg1, kp1, des1 = sift_kp(img1)
-    kpimg2, kp2, des2 = sift_kp(img2)
-
-    bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
-    matches = bf.knnMatch(des1, des2, k=1)
-
-    cv2.imshow('img1', kpimg1)
-    cv2.imshow('img2', kpimg2)
-    cv2.waitKey()
-
-    orb = cv2.ORB_create()
-    kp0, des0 = orb.detectAndCompute(img1, None)
-    kp, des = orb.detectAndCompute(img2, None)
-
-    bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
-    matches = bf.knnMatch(des0, des, k=1)
-
-    while [] in matches:
-        matches.remove([])
-    matches = sorted(matches, key=lambda x: x[0].distance)
-
-    dy_list = list()
-    img1_ = img1.copy()
-    img2_ = img2.copy()
-    for match in matches[0:30]:
-        x0, y0 = int(kp0[match[0].queryIdx].pt[0]), int(kp0[match[0].queryIdx].pt[1])
-        x, y = int(kp[match[0].trainIdx].pt[0]), int(kp[match[0].trainIdx].pt[1])
-        dy_list.append(y - y0)
-
-        r, g, b = random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
-        img0_ = cv2.circle(img1_, (x0, y0), 5, (r, g, b))
-        img_ = cv2.circle(img2_, (x, y), 5, (r, g, b))
-        cv2.imshow('img0_', img0_)
-        cv2.imshow('img_', img_)
-        cv2.waitKey()
-    dy_list = list(filter(lambda x: x > 0, dy_list))
-    if dy_list:
-        if type == 'mode':
-            counts = np.bincount(dy_list)
-            mode = np.argmax(counts)
-            return mode
-        else:
-            return sum(dy_list[:10]) / 10
-    return 0
+    return diff_sum
 
 
 if __name__ == '__main__':
@@ -109,6 +67,11 @@ if __name__ == '__main__':
     for test_name in os.listdir(test_dir):
         test_im = cv2.imread(os.path.join(test_dir, test_name))
         for reference_name in os.listdir(reference_dir):
-            reference_im = cv2.imread(os.path.join(reference_dir, reference_name))
-            reference_im = cv2.resize(reference_im, (test_im.shape[0], test_im.shape[1]))
+            reference_im = cv2.imread(os.path.join(reference_dir, reference_name), cv2.IMREAD_UNCHANGED)
+
+            min_h = min(reference_im.shape[0], test_im.shape[0])
+            min_w = min(reference_im.shape[1], test_im.shape[1])
+            reference_im = reference_im[:min_h, :min_w, :]
+            test_im = test_im[:min_h, :min_w, :]
+
             sift_match(test_im, reference_im)

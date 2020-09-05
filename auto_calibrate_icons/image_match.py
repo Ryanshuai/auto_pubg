@@ -38,7 +38,7 @@ def detect_y_move(img0, img, type='mode'):
 
 
 if __name__ == '__main__':
-    img1 = cv2.imread("0.png")
+    img1 = cv2.imread("x4.png")
     img2 = cv2.imread("big_icon/x4.png")
 
     dy = detect_y_move(img1, img2)
