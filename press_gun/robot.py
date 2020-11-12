@@ -3,7 +3,7 @@ import threading
 from pynput import keyboard, mouse
 from PyQt5.QtCore import pyqtSignal, QObject
 
-from image_detection.detect import Detector
+from image_detection.detect import WhiteDetector, DiffDetector
 from calibrate_icons.get_position.position_constant import crop_position
 from state.all_states import All_States
 from screen_capture import win32_cap
@@ -26,17 +26,17 @@ class Robot:
 
         self.is_calibrating = is_calibrating
 
-        self.fire_mode_detect = Detector('fire-mode', 'white', min_white_rate['fire-mode'])
-        self.in_tab_detect = Detector('in-tab', 'white', min_white_rate['in-tab'])
+        self.fire_mode_detect = WhiteDetector('fire-mode', 'white', min_white_rate['fire-mode'])
+        self.in_tab_detect = WhiteDetector('in-tab', 'white', min_white_rate['in-tab'])
         # self.posture_detect = Detector('posture', 'white', min_white_rate['posture'])
         # self.in_scope_detect = Detector('in_scope')
 
         self.gun_detector = dict()
-        self.gun_detector['name'] = Detector('name', 'white', min_white_rate['name'])
-        self.gun_detector['scope'] = Detector('scope', 'icon', default='1')
-        self.gun_detector['muzzle'] = Detector('muzzle', 'icon')
-        self.gun_detector['grip'] = Detector('grip', 'icon')
-        self.gun_detector['butt'] = Detector('butt', 'icon')
+        self.gun_detector['name'] = WhiteDetector('name', 'white', min_white_rate['name'])
+        self.gun_detector['scope'] = DiffDetector('scope', 'icon', default='1')
+        self.gun_detector['muzzle'] = DiffDetector('muzzle', 'icon')
+        self.gun_detector['grip'] = DiffDetector('grip', 'icon')
+        self.gun_detector['butt'] = DiffDetector('butt', 'icon')
         # self.gun_detector['magazine'] = Detector('magazine', 'icon')
 
         self.key_listener = keyboard.Listener(on_press=self.on_press)
@@ -151,7 +151,7 @@ def prepare_calibrate_dir(name):
             image_dir += str(i) + '/'
             break
     os.makedirs(image_dir, exist_ok=True)
-    win32_cap(filename=image_dir + '44.png', rect=(100, 100, 400, 1600))
+    win32_cap(filename=image_dir + '4444.png', rect=(100, 100, 400, 1600))
     return image_dir
 
 

@@ -50,11 +50,12 @@ def sift_match(img1_3c, img2_4c):
     translated_img1 = translate(img1_3c, -dx, -dy)
     mask_diff_img, diff_sum = mask_diff(img2_4c[:, :, 3], img2_4c[:, :, :3], translated_img1)
 
-    # cv2.imshow("diff", mask_diff_img)
-    # match_s = good_match_dx_dy_s[:top_n, 1]
-    # match_img = cv2.drawMatches(img1_3c, kp1, img2_3c, kp2, match_s, None, flags=2)
-    # cv2.imshow('match_img', match_img)
-    # cv2.waitKey()
+    print(diff_sum)
+    cv2.imshow("diff", mask_diff_img)
+    match_s = good_match_dx_dy_s[:top_n, 1]
+    match_img = cv2.drawMatches(img1_3c, kp1, img2_3c, kp2, match_s, None, flags=2)
+    cv2.imshow('match_img', match_img)
+    cv2.waitKey()
 
     return diff_sum
 
