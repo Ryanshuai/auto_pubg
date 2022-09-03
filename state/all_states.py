@@ -1,4 +1,5 @@
-import math
+import numpy as np
+from scipy.interpolate import interp1d
 
 from state.time_periods_constant import time_periods
 from calibrate_distance.gun_distance_constant import dist_lists
@@ -46,29 +47,19 @@ def factor_scope(scope):
     return scope * factor * screen_factor
 
 
-def calculate_press_seq(name, factor):
-    dist_interval = dist_lists.get(name, [0])
-    if len(dist_interval) > 2:
-        a, dist_interval = dist_interval[0], dist_interval[1:]
-        dist_interval[0] += a
-    # dist_interval.append(dist_interval[-1] * (40 - len(dist_interval)))
-    dist_interval = [i * factor for i in dist_interval]
-    time_interval = time_periods.get(name, 1)
-    divide_num0 = math.floor(time_interval / 0.01)  # 整数分割
-    time_sequence = list()
-    time_accumulate = 0
-    dist_sequence = list()
-    for dist in dist_interval:
-        divide_num1 = math.floor(dist / 3)  # 整数分割
-        divide_num = min(divide_num0, divide_num1)
-        for i in range(divide_num):
-            time_accumulate += time_interval / divide_num
-            time_sequence.append(time_accumulate)
-            dist_sequence.append(dist // divide_num)
-        if divide_num != 0:
-            dist_sequence[-1] += dist % divide_num
+def calculate_press_seq(name, factor, is_calibrating=False):
+    y_s = np.array(dist_lists.get(name, [0])) * factor
+    x_s = np.ones_like(y_s) * is_calibrating * factor
 
-    return dist_sequence, time_sequence
+    t_s = time_periods.get(name, 0.1) * np.ones_like(y_s)
+    t_s[0] = 0
+    t_s = np.cumsum(t_s)
+
+    y_fun = interp1d(t_s, y_s, kind="linear")
+    x_fun = interp1d(t_s, x_s, kind="linear")
+
+    t_s = np.linspace(0, t_s[-1], num=int(t_s[-1] / 0.01))
+    return x_fun(t_s), y_fun(t_s), t_s
 
 
 class Ground():
@@ -186,3 +177,5 @@ class All_States():
 
 if __name__ == '__main__':
     states = All_States()
+    states.weapon[0].set('name', 'm416')
+    states.weapon[0].set_seq()
