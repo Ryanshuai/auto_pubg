@@ -40,6 +40,7 @@ class WhiteDetector(Detector):
         return self.default
 
 
+
 class DiffDetector(Detector):
     def detect(self, crop_im, avr_thr=max_icon_diff):
         for item_name, png in self.png_dict.items():
